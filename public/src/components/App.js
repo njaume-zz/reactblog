@@ -21,7 +21,7 @@ const GithubIcon = () => (
 
 class App extends Component {
   render() {
-    const dbHost = "http://localhost:3000/posts";
+    const dbHost = "http://127.0.0.1:3000/posts";
 
     return (
       <div className="blogBody">
