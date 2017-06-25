@@ -4,8 +4,10 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var postSchema = new Schema({
-  title: String,
+  title: { type: String, required: true },
+  introduction: { type: String, required: true },
   body: { type: String, required: true },
+  imageUrl: { type: String, required: true },
   created_at: Date,
   updated_at: Date
 });
