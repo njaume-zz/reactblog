@@ -23,3 +23,5 @@ var Post = React.createClass({
     );
   }
 });
+
+export default Post;

@@ -2,7 +2,7 @@ import React, {
   Component
 } from 'react';
 import {Tab, Tabs} from 'react-toolbox';
-
+import Post from './Post.js';
 
 var PostList = React.createClass({
 
