@@ -12,10 +12,21 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/:idPost', function(req, res, next) {
+  Post.findOne({_id: req.params.idPost})
+    .exec(function(err, post) {
+    if (err) return console.error(err);
+    console.log("post" + post);
+    res.send(post);
+  })
+
+});
+
 router.post('/', function(req, res, next) {
   var post = new Post({
     title: req.body.title,
     body: req.body.body,
+    introduction: req.body.introduction,
     created_at : req.body.created_at
   })
   post.save(function(err, post) {

@@ -14,7 +14,7 @@ var PostList = React.createClass({
            console.log("PostList - posts" + JSON.stringify(this.props.posts));
            p = this.props.posts.map(function(post, i) {
               return (<div style={{'margin': 'auto', 'padding':'20px 20px 20px 20px', width: '25%', float: 'left'}}>
-                        <Post key={post._id.toString()} title={post.title} body={post.body} />
+                        <Post key={post._id.toString()} post={post} />
                         </div>
                         );
               })

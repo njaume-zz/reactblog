@@ -24,7 +24,7 @@ class TabsSection extends React.Component {
 }
   loadPostList = function() {
   console.log("loading posts");
-  axios.get(this.props.dbHost)
+  axios.get("/posts")
   .then(res => {
     const posts = res.data;
     this.setState({ posts: posts });
