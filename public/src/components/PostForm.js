@@ -29,7 +29,12 @@ class PostForm extends React.Component {
         console.log("event target value " + document.getElementById('postIntroduction').value);
         this.setState({postIntroduction: document.getElementById('postIntroduction').value});
       }
-
+/*
+      handleChangePostImage() {
+        console.log("event target value " + document.getElementById('postImage').files[0]);
+        this.setState({postImage: document.getElementById('postImage').files[0]});
+      }
+*/
 
       handleSubmit(event) {
           event.preventDefault();
@@ -37,7 +42,7 @@ class PostForm extends React.Component {
             'title': this.state.postTitle,
             'introduction': this.state.postIntroduction,
             'body': this.state.postBody,
-            'created_at': new Date()
+            'created_at': new Date(),
           };
           this.props.onPostChange(post);
 
@@ -54,8 +59,6 @@ class PostForm extends React.Component {
               <Input type='text' name='postIntroduction' id="postIntroduction" value={this.state.postInstroduction} multiline maxLength={1000} onChange={this.handleChangePostIntroduction}  />
               <label>Post Body</label>
               <Input type='text' name='postBody' id="postBody" value={this.state.postBody} multiline maxLength={1000} onChange={this.handleChangePostBody}  />
-              <label>Post Image</label>
-              <Input type="file" id="postImage" name="postImage" accept="image/*" />
               <Button type="submit" label="add!" floating />
               </form>
             </section>

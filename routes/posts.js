@@ -13,12 +13,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:idPost', function(req, res, next) {
-  Post.findOne({_id: req.params.idPost})
+  Post.findOne({
+      _id: req.params.idPost
+    })
     .exec(function(err, post) {
-    if (err) return console.error(err);
-    console.log("post" + post);
-    res.send(post);
-  })
+      if (err) return console.error(err);
+      console.log("post" + post);
+      res.send(post);
+    })
 
 });
 
@@ -27,7 +29,7 @@ router.post('/', function(req, res, next) {
     title: req.body.title,
     body: req.body.body,
     introduction: req.body.introduction,
-    created_at : req.body.created_at
+    created_at: req.body.created_at
   })
   post.save(function(err, post) {
     if (err) {
@@ -37,5 +39,13 @@ router.post('/', function(req, res, next) {
   })
 });
 
+router.delete('/', function(req, res, next) {
+  Post.remove({}, function(err) {
+    if (!err) {
+      console.log("err" + err);
+    }
+    res.send("ok");
+  })
+});
 
 module.exports = router;

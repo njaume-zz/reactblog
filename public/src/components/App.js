@@ -3,10 +3,11 @@ import React, {
 } from 'react';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
-import Link from 'react-toolbox/lib/link';
+//import Link from 'react-toolbox/lib/link';
 import TabsSection from './TabsSection.js';
 import DetailPostSection from './DetailPostSection.js';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
+
 
 const GithubIcon = () => (
   <svg viewBox="0 0 284 277">
@@ -27,11 +28,12 @@ const Main = () => (
 
 class App extends Component {
   render() {
-    const dbHost = "http://104.236.93.195:3000/posts";
     return (
       <div className="blogBody">
       <AppBar title='React Blog' rightIcon={<GithubIcon />}>
-      </AppBar>
+      <Link to={'/'}>Home</Link>
+        </AppBar>
+
       <Main dbHost={dbHost}/>
       </div>
     );
